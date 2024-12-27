@@ -1,6 +1,8 @@
 * {
     box-sizing: border-box;
     --font-family-secundary: "Righteous", sans-serif;
+    --primary-color: #CF2B2B;
+    --secundary-color: #32B72F;
 }
 
 :root {
@@ -8,7 +10,7 @@
 }
 
 header {
-    background-color: #303030;
+    background-color: var(--primary-color);
     height: 90px;
     color: #FFF;
     position: sticky;
@@ -111,16 +113,16 @@ footer button {
 }
 
 .pedido-selecionado {
-    outline: solid #b68b14;
+    outline: solid var(--secundary-color);
 }
 
 .pedido-fechado {
-    background-color: #b68b14;
+    background-color: var(--secundary-color);
 
 }
 
 .icon {
-    color: #b68b14;
+    color: var(--secundary-color);
     position: absolute;
     bottom: 8px;
     right: 10px;
@@ -147,7 +149,7 @@ footer button {
 
 .pedido-concluido .sessao{
     min-width: 270px;
-    background-color: #303030;
+    background-color: var(--secundary-color);
     color: #FFF;
     padding: 20px;
     display: flex;
@@ -183,7 +185,7 @@ footer button {
 .pedido-concluido .confirmar{
     background-color: #FFF;
     border: none;
-    color: #303030;
+    color: var(--secundary-color);
     border-radius: 20px;
     margin-top: 10px;
     padding: 10px 20px;

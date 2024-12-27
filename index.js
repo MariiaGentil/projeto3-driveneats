@@ -13,7 +13,11 @@ function selecionarProduto(elem, tipo){
             iconPrato = elem.lastElementChild
             iconPrato.classList.remove("disabled")
             selecionadoPrato = elem
-        } else{
+        } else if(selecionadoPrato === elem){
+            elem.classList.remove("pedido-selecionado")
+            iconPrato.classList.add("disabled")
+            selecionadoPrato = null
+        }else{
             iconPrato.classList.add("disabled")
             selecionadoPrato.classList.remove("pedido-selecionado")
             selecionadoPrato = elem
@@ -29,7 +33,11 @@ function selecionarProduto(elem, tipo){
             iconBebida = elem.lastElementChild
             iconBebida.classList.remove("disabled")
             selecionadoBebida = elem
-        } else{
+        }  else if(selecionadoBebida === elem){
+            elem.classList.remove("pedido-selecionado")
+            iconBebida.classList.add("disabled")
+            selecionadoBebida = null
+        }else{
             iconBebida.classList.add("disabled")
             selecionadoBebida.classList.remove("pedido-selecionado")
             selecionadoBebida = elem
@@ -45,6 +53,10 @@ function selecionarProduto(elem, tipo){
             iconSobremesa = elem.lastElementChild
             iconSobremesa.classList.remove("disabled")
             selecionadoSobremesa = elem
+        } else if(selecionadoSobremesa === elem){
+            elem.classList.remove("pedido-selecionado")
+            iconSobremesa.classList.add("disabled")
+            selecionadoSobremesa = null
         } else{
             iconSobremesa.classList.add("disabled")
             selecionadoSobremesa.classList.remove("pedido-selecionado")
@@ -90,11 +102,6 @@ function ativarBotaoCompra(){
             definirTotal.innerHTML = `R$ ${total}`
 
             mensagemFinal = `Seu pedido foi: ${selecionadoPrato.children[1].textContent}, ${selecionadoBebida.children[1].textContent} e ${selecionadoSobremesa.children[1].textContent}. Com total de R$ ${total}. Obrigada!`
-            // Olá, gostaria de fazer o pedido:
-            // - Prato: ${selecionadoPrato.children[1].textContent}
-            // - Bebida: ${selecionadoBebida.children[1].textContent}
-            // - Sobremesa: ${selecionadoSobremesa.children[1].textContent}
-            // Total: R$ ${total}
         
         })
 
@@ -106,5 +113,8 @@ function ativarBotaoCompra(){
         btnCancelar.addEventListener("click", function(){
             telaPedidoConcluido.classList.add("disabled")
         })
+    } else{
+        btn.classList.remove("pedido-fechado")
+        btn.innerHTML = "Selecione os 3 itens para fechar o pedido"
     }
 }
